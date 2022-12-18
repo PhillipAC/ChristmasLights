@@ -17,7 +17,7 @@ int Offset = 0;
 void setup() {}
 
 void loop() {
-  ledService.ShowColorSequence(Colors, Offset, 1);
+  ledService.ShowColorSequence(Colors, sizeof(Colors)/sizeof(Colors[0]),Offset, 1);
   Offset++;
   if (Offset == 6){
     Offset = 0;

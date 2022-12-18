@@ -13,5 +13,5 @@ class LedService
  public:
      LedService();
      
-     void ShowColorSequence(CHSV color[], int offset, double duration);
+     void ShowColorSequence(CHSV color[], int arraySize, int offset, double duration);
 };
