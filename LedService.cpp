@@ -8,10 +8,12 @@ LedService::LedService()
    LEDS.setBrightness(84);
 };
 
-void LedService::ShowColorSequence(CHSV colors[], int arraySize, int offset, double duration) 
+void LedService::ShowColorSequence(CHSV colors[], int arraySize, int offset, int skip, double duration) 
 {
-   for (int i = 0; i < NUM_LEDS; i++) {
-       int index = (i+offset)%arraySize;
+   int j = 0;
+   for (int i = 0; i < NUM_LEDS; i+= skip) {
+       j++;
+       int index = (j+offset)%arraySize;
        Leds[i] = colors[index];
    }
    FastLED.show();
