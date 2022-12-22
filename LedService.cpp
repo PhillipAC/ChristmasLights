@@ -8,7 +8,7 @@ LedService::LedService()
    LEDS.setBrightness(84);
 };
 
-void LedService::SetLed(int index, CHSV color)
+void LedService::SetLed(int index, CRGB color)
 {
   Leds[index] = color;
 }
@@ -18,7 +18,7 @@ void LedService::Display()
   FastLED.show();
 }
 
-CHSV LedService::GetLedColor(int index)
+CRGB LedService::GetLedColor(int index)
 {
-  return rgb2hsv_approximate(Leds[index]);
+  return Leds[index];
 }

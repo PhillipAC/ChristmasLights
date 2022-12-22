@@ -4,6 +4,8 @@
 #include "Led.h"
 #include "LedService.h"
 
+#define NUM_FLASHING 10
+
 CHSV Colors[] = {
   CHSV(00, 255, 255), //Red
   CHSV(46, 255, 255), //Yellow
@@ -12,16 +14,11 @@ CHSV Colors[] = {
   CHSV(85, 255, 255), //Green
   CHSV(213, 255, 255)}; //Purple
 
-Led LED1;
-Led LED2;
-
 LedService ledService;
 
-bool result1 = false;
-short index1 = 0;
-
-bool result2 = false;
-short index2 = 0;
+bool Results[NUM_FLASHING];
+short Indexes[NUM_FLASHING];
+Led Leds[NUM_FLASHING];
 
 void setup() {
   for(short i = 0; i < 150; i++)
@@ -31,19 +28,15 @@ void setup() {
 }
 
 void loop() {
-  if(result1)
+  for(short i = 0; i < NUM_FLASHING; i++)
   {
-    index1 = floor(random(0, 150));
-    LED1.SetColor(ledService.GetLedColor(index1));
+    if(Results[i])
+    {
+      Indexes[i] = floor(random(0, 150));
+      Leds[i].SetColor(ledService.GetLedColor(Indexes[i]));
+    }
+    Results[i] = Leds[i].ShiftColor(1);
+    ledService.SetLed(Indexes[i], Leds[i].GetCurrentColor());
   }
-  if(result2)
-  {
-    index2 = floor(random(0, 150));
-    LED2.SetColor(ledService.GetLedColor(index2));
-  }
-  result1 = LED1.ShiftColor(1);
-  result2 = LED2.ShiftColor(2);
-  ledService.SetLed(index1, LED1.GetCurrentColor());
-  ledService.SetLed(index2, LED2.GetCurrentColor());
   ledService.Display();  
 }

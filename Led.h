@@ -10,19 +10,19 @@ enum BrightnessMode
 class Led
 {
  protected:
-     CHSV _color;
-     CHSV _currentColor;
+     CRGB _color;
+     CRGB _currentColor;
      BrightnessMode _brightnessMode = DIM;
      short _percentage = 0;
 
  public:
      Led();
      
-     Led(CHSV color);
+     Led(CRGB color);
 
      bool ShiftColor(int increment);
 
-     CHSV GetCurrentColor();
+     CRGB GetCurrentColor();
 
-     void SetColor(CHSV color);
+     void SetColor(CRGB color);
 };

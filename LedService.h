@@ -12,7 +12,7 @@ class LedService
 
  public:
      LedService();
-     void SetLed(int index, CHSV color);
+     void SetLed(int index, CRGB color);
      void Display();
-     CHSV GetLedColor(int index);
+     CRGB GetLedColor(int index);
 };
