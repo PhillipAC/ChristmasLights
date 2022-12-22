@@ -13,14 +13,14 @@ class Led
      CRGB _color;
      CRGB _currentColor;
      BrightnessMode _brightnessMode = DIM;
-     short _percentage = 0;
+     float _percentage = 0;
 
  public:
      Led();
      
      Led(CRGB color);
 
-     bool ShiftColor(int increment);
+     bool ShiftColor(float increment);
 
      CRGB GetCurrentColor();
 

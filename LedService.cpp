@@ -3,7 +3,6 @@
 
 LedService::LedService()
 {
-   LedCount = NUM_LEDS;
    LEDS.addLeds<WS2812, 7, RGB>(Leds, NUM_LEDS);
    LEDS.setBrightness(84);
 };

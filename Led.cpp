@@ -13,14 +13,14 @@ Led::Led(CRGB color)
   _currentColor = color;
 }
 
-bool Led::ShiftColor(int increment)
+bool Led::ShiftColor(float increment)
 {
   _percentage += increment;
   if(_brightnessMode == DIM)
   {
-    _currentColor.r = round(_color.r*(1 - _percentage/ 100.0));
-    _currentColor.g = round(_color.g*(1 - _percentage/ 100.0));
-    _currentColor.b = round(_color.b*(1 - _percentage/ 100.0));
+    _currentColor.r = round(_color.r * (1 - _percentage / 100.0));
+    _currentColor.g = round(_color.g * (1 - _percentage / 100.0));
+    _currentColor.b = round(_color.b * (1 - _percentage / 100.0));
   }
   if(_brightnessMode == BRIGHTEN)
   {

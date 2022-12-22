@@ -2,13 +2,12 @@
 
 #include <FastLED.h>
 
-#define NUM_LEDS 150
+#define NUM_LEDS 50
 
 class LedService
 {
  protected:
      CRGB Leds[NUM_LEDS];
-     int LedCount;
 
  public:
      LedService();
